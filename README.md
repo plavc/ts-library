@@ -7,6 +7,7 @@ https://github.com/plavc/ts-app
 
 ## Resouces
 
+- https://michalzalecki.com/creating-typescript-library-with-a-minimal-setup/
 - https://docs.npmjs.com/files/package.json
 - https://blog.risingstack.com/building-a-node-js-app-with-typescript-tutorial/
 - https://blog.pusher.com/use-typescript-with-node/
