@@ -3,18 +3,29 @@
   "version": "1.0.0",
   "description": "First Typescript Library",
   "main": "lib/index.js",
-  "types" : "lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\" \"**/*.json\"",
     "lint": "tslint -p tsconfig.json",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "npm run build"
+    "test": "jest --config jestconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "author": "Gregor Plavčak",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/plavc/ts-library.git"
+  },
   "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "jest": "^23.6.0",
     "prettier": "^1.14.3",
+    "ts-jest": "^23.10.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.0.3"
